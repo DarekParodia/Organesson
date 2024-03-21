@@ -1,4 +1,5 @@
 package com.darekparodia.organesson.scenes;
 
-public class Scene {
+public abstract class Scene {
+
 }

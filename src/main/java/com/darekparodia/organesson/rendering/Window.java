@@ -42,14 +42,15 @@ public class Window {
 
         // Make the OpenGL context current
         GLFW.glfwMakeContextCurrent(this.window);
-
-        // Make the window visible
-        GLFW.glfwShowWindow(this.window);
     }
 
     public void update() {
         GLFW.glfwSwapBuffers(this.window);
         GLFW.glfwPollEvents();
+    }
+
+    public void show(){
+        GLFW.glfwShowWindow(this.window);
     }
 
     public boolean shouldClose() {

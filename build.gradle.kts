@@ -15,8 +15,11 @@ group = "com.darekparodia.organesson"
 version = "1.0-SNAPSHOT"
 
 val lwjglVersion = "3.3.3"
-val lwjglNatives = "natives-windows"
-
+val lwjglNatives = when {
+    System.getProperty("os.name").startsWith("Windows", ignoreCase = true) -> "natives-windows"
+    System.getProperty("os.name").startsWith("Linux", ignoreCase = true) -> "natives-linux"
+    else -> throw IllegalArgumentException("Unsupported operating system")
+}
 repositories {
     mavenCentral()
 }
