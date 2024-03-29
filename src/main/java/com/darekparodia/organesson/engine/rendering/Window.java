@@ -1,4 +1,4 @@
-package com.darekparodia.organesson.rendering;
+package com.darekparodia.organesson.engine.rendering;
 
 import org.lwjgl.glfw.GLFW;
 
@@ -30,15 +30,16 @@ public class Window {
             throw new RuntimeException("Failed to create the GLFW window");
         }
 
-        GLFW.glfwSetWindowSizeLimits(this.window, this.minWidth, this.minHeight, GLFW.GLFW_DONT_CARE, GLFW.GLFW_DONT_CARE);
+        GLFW.glfwSetWindowSizeLimits(this.window, this.minWidth, this.minHeight, GLFW.GLFW_DONT_CARE,
+                GLFW.GLFW_DONT_CARE);
         // eventy do zrobienia
-
 
         // set to center of the current monitor
         int monitorWidth = GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor()).width();
         int monitorHeight = GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor()).height();
 
-        GLFW.glfwSetWindowMonitor(this.window, 0, (monitorWidth - width) / 2, (monitorHeight - height) / 2, width, height, GLFW.GLFW_DONT_CARE);
+        GLFW.glfwSetWindowMonitor(this.window, 0, (monitorWidth - width) / 2, (monitorHeight - height) / 2, width,
+                height, GLFW.GLFW_DONT_CARE);
 
         // Make the OpenGL context current
         GLFW.glfwMakeContextCurrent(this.window);
@@ -49,7 +50,7 @@ public class Window {
         GLFW.glfwPollEvents();
     }
 
-    public void show(){
+    public void show() {
         GLFW.glfwShowWindow(this.window);
     }
 
